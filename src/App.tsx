@@ -18,6 +18,7 @@ import LoanDetailPage from "./pages/LoanDetail";
 import AddLoanPage from "./pages/AddLoan";
 import EditLoanPage from "./pages/EditLoan";
 import SettingsPage from "./pages/Settings";
+import NotFoundPage from "./pages/NotFound";
 
 function AuthGate({ children }: { children: React.ReactNode }) {
   const user = useAuthStore((s) => s.user);
@@ -150,7 +151,7 @@ export default function App() {
         />
 
         {/* Fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
