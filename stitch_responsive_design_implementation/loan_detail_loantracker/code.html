@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loan Detail - Sunita Verma</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#006b58",
+                      "outline-variant": "#c8c5cd",
+                      "surface-container-high": "#ebe7e9",
+                      "on-error-container": "#93000a",
+                      "muted": "#7f8c8d",
+                      "primary-fixed": "#e2e0fc",
+                      "white": "#ffffff",
+                      "on-surface": "#1c1b1d",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#1a1a2e",
+                      "on-surface-variant": "#47464c",
+                      "debit": "#27ae60",
+                      "navy": "#1a1a2e",
+                      "primary": "#00000b",
+                      "overdue": "#e74c3c",
+                      "tertiary": "#695d3c",
+                      "outline": "#78767d",
+                      "surface-container-highest": "#e5e1e3",
+                      "surface-dim": "#ddd9db",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#83829b",
+                      "inverse-on-surface": "#f4f0f2",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#002019",
+                      "background": "#fcf8fa",
+                      "on-secondary-container": "#00725e",
+                      "inverse-surface": "#313032",
+                      "on-primary-fixed": "#1a1a2e",
+                      "tertiary-fixed-dim": "#d5c59d",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#005142",
+                      "border": "#e5e7eb",
+                      "on-background": "#1c1b1d",
+                      "surface-container": "#f1edef",
+                      "tertiary-container": "#b9aa83",
+                      "secondary-container": "#82f7d8",
+                      "surface-variant": "#e5e1e3",
+                      "surface-tint": "#5d5c74",
+                      "text": "#2c3e50",
+                      "red-50": "#fef2f2",
+                      "surface": "#f5f6fa",
+                      "secondary-fixed-dim": "#65dabc",
+                      "on-tertiary-container": "#493f20",
+                      "on-tertiary-fixed-variant": "#514627",
+                      "primary-fixed-dim": "#c6c4df",
+                      "on-tertiary-fixed": "#231b02",
+                      "inverse-primary": "#c6c4df",
+                      "paid": "#27ae60",
+                      "surface-container-low": "#f6f2f4",
+                      "on-primary-fixed-variant": "#45455b",
+                      "tertiary-fixed": "#f2e1b7",
+                      "teal": "#16a085",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#82f7d8",
+                      "surface-bright": "#fcf8fa",
+                      "credit": "#c0392b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "xl": "32px",
+                      "sidebar-width": "240px",
+                      "lg": "24px",
+                      "container-max": "1200px",
+                      "xxl": "40px",
+                      "topbar-height": "64px",
+                      "xxs": "4px",
+                      "xs": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "section-title": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-base": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "micro": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "section-title": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-base": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "micro": [
+                              "11px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.025em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .shadow-soft { box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+        .shadow-hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-base antialiased min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800 shadow-sm z-40">
+<div class="flex justify-between items-center h-topbar-height px-8 max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="text-xl font-bold text-slate-900 dark:text-white font-headline-md tracking-tight">LoanTracker</span>
+<nav class="hidden md:flex ml-lg gap-md">
+<a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 font-label-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors px-xs py-xxs rounded-DEFAULT" href="#">Dashboard</a>
+<a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 font-label-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors px-xs py-xxs rounded-DEFAULT" href="#">Credit</a>
+<a class="text-teal-600 border-b-2 border-teal-600 font-semibold font-label-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors px-xs py-xxs" href="#">Debit</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-muted text-[20px]">search</span>
+<input class="h-[40px] pl-[36px] pr-sm rounded-DEFAULT border-border focus:border-teal focus:ring-2 focus:ring-teal/20 text-body-sm font-body-sm w-[240px]" placeholder="Search..." type="text"/>
+</div>
+<button class="text-teal-600 dark:text-teal-400 font-label-md font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors px-sm py-xs rounded-DEFAULT active:scale-95 duration-150">Add Loan</button>
+<button class="text-muted hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-border" data-alt="A small, professional circular avatar portrait of a modern corporate user. The portrait is well-lit, displaying a neutral expression, suitable for a financial dashboard profile image. The image is crisp, utilizing a neutral, professional color palette consistent with modern UI design systems." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4JPhn6eD8CtZeqWOYZ77krEO1nUf1F4cu7pp_k8I6P3KMBxzw-at6h8TNG0S2w6jDjADFuf1oz_PJYy8nWhSe7nw-_u0YRvCHNt6CA2P1GVz12p3bBytTodq4mBzk63tafgqZQaf4lWk-cKQfjIpLVglwB6nJ_WL8rKuMAqX2DR_DchC4YAJN8iRwb-rwIlPjJRPqci4DKunWNwO6zgG33M3_S5A0GS-N6ZGzeIPWSrywY6wBFaZvMs-42TgkrH2NmFz5e7MaVi2a"/>
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="w-sidebar-width h-[calc(100vh-64px)] sticky top-topbar-height border-r border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 hidden md:flex flex-col py-6 space-y-4">
+<div class="px-md mb-md flex items-center gap-sm">
+<img alt="User Avatar" class="w-10 h-10 rounded-full" data-alt="A secondary circular avatar for a professional user profile, designed for a sidebar navigation element. The image is clean, sharp, and lit with soft studio lighting. It reflects a corporate, trustworthy persona fitting for a financial application context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTDJibsG4AxDrFb0QDCyXJRNIdSFZ_QsOf9868xTsshjZ_bmQif7o9ts7PLg4-7nJMiNS5npt70T_wW4ZwBCRYRU9rWJ--utRUj4Uq_VQBZQxnRMXsIe5HfweGosULpdtsn4KdDNB_3-AnVBuc76qqZUIN4tj4x5xyRHsXav7sKaCHX3IIg3RhSTCLvkouizeFJRw7i2lpfu7bXP1EEivWerely_x2XERO-bSsuOxmEbyRD3qjiYrmRblgMKklJiX5dlkkQW2Ga_5Q"/>
+<div>
+<div class="font-label-md text-on-surface">LoanTracker Admin</div>
+<div class="font-micro text-muted">Premium Lender</div>
+</div>
+</div>
+<nav class="flex-1 px-xs space-y-xs">
+<a class="flex items-center gap-sm px-sm py-[12px] text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-DEFAULT font-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-[12px] text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-DEFAULT font-label-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Credit</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-[12px] bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border-l-4 border-teal-600 hover:pl-2 transition-all duration-200 cursor-pointer rounded-r-DEFAULT font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span>Debit</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-[12px] text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-DEFAULT font-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-md mb-md">
+<button class="w-full bg-teal text-white font-label-md h-[44px] rounded-[10px] hover:bg-secondary transition-colors">New Transaction</button>
+</div>
+<div class="px-xs mt-auto">
+<a class="flex items-center gap-sm px-sm py-[12px] text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-DEFAULT font-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-md md:p-xl pb-32">
+<!-- Breadcrumbs / Back -->
+<div class="mb-lg">
+<a class="inline-flex items-center gap-xxs text-muted hover:text-on-surface font-label-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                    Back to Debit Loans
+                </a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Loan Info Card -->
+<div class="lg:col-span-5 space-y-lg">
+<div class="bg-white rounded-xl border border-border shadow-soft overflow-hidden">
+<!-- Card Header -->
+<div class="p-lg border-b border-border bg-surface-bright flex justify-between items-start">
+<div>
+<h1 class="font-headline-lg text-on-surface mb-xxs">Sunita Verma</h1>
+<div class="flex items-center gap-xs text-muted font-body-sm">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                    +91 98765 43210
+                                </div>
+</div>
+<span class="inline-flex items-center px-sm py-xxs rounded-full bg-red-50 text-overdue font-micro border border-overdue">
+                                Overdue
+                            </span>
+</div>
+<!-- Stat Grid -->
+<div class="p-lg grid grid-cols-2 gap-md">
+<div>
+<div class="text-muted font-label-sm mb-xxs">Principal Amount</div>
+<div class="font-headline-md text-on-surface">₹75,000</div>
+</div>
+<div>
+<div class="text-muted font-label-sm mb-xxs">Interest Rate</div>
+<div class="font-headline-md text-on-surface">9% <span class="font-body-sm text-muted">/mo</span></div>
+</div>
+<div>
+<div class="text-muted font-label-sm mb-xxs">Tenure</div>
+<div class="font-section-title text-on-surface">2 months</div>
+</div>
+<div>
+<div class="text-muted font-label-sm mb-xxs">Start Date</div>
+<div class="font-section-title text-on-surface">12 Oct 2023</div>
+</div>
+</div>
+<!-- Progress Section -->
+<div class="p-lg border-t border-border">
+<div class="flex justify-between items-end mb-xs">
+<div>
+<div class="text-muted font-label-sm">Total Repaid</div>
+<div class="font-section-title text-debit">₹38,250</div>
+</div>
+<div class="text-right">
+<div class="text-muted font-label-sm">Remaining</div>
+<div class="font-section-title text-on-surface">₹43,500</div>
+</div>
+</div>
+<div class="h-[8px] w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-debit" style="width: 46%;"></div>
+</div>
+</div>
+<!-- Actions -->
+<div class="p-lg border-t border-border flex gap-md bg-surface-bright">
+<button class="flex-1 h-[44px] rounded-[10px] border border-teal text-teal font-label-md hover:bg-teal/5 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                Edit Loan
+                            </button>
+<button class="h-[44px] px-md rounded-[10px] text-overdue hover:bg-red-50 font-label-md transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Additional Info Card (Optional context for realism) -->
+<div class="bg-white rounded-xl border border-border shadow-soft p-lg">
+<h3 class="font-section-title text-on-surface mb-md">Notes</h3>
+<p class="font-body-sm text-muted">Late payment often due to business cycle. Follow up via WhatsApp usually effective.</p>
+</div>
+</div>
+<!-- Right Column: Repayment Schedule -->
+<div class="lg:col-span-7">
+<div class="bg-white rounded-xl border border-border shadow-soft overflow-hidden">
+<div class="p-lg border-b border-border flex justify-between items-center bg-surface-bright">
+<h2 class="font-section-title text-on-surface">Repayment Schedule</h2>
+<div class="font-label-sm text-muted">Total Due: ₹81,750</div>
+</div>
+<div class="divide-y divide-border">
+<!-- Installment 1: Paid -->
+<div class="flex items-center p-md hover:bg-surface transition-colors relative group">
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-paid"></div>
+<div class="flex-1 pl-sm">
+<div class="flex justify-between items-center mb-xxs">
+<div class="font-label-md text-on-surface">Installment 1</div>
+<div class="font-section-title text-on-surface">₹40,875</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="font-body-sm text-muted">Due: 12 Nov 2023</div>
+<div class="font-label-sm text-paid flex items-center gap-xxs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                            Paid on 10 Nov
+                                        </div>
+</div>
+</div>
+</div>
+<!-- Installment 2: Overdue -->
+<div class="flex items-center p-md bg-red-50 relative">
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-overdue"></div>
+<div class="flex-1 pl-sm flex flex-col sm:flex-row sm:items-center justify-between gap-md">
+<div>
+<div class="flex items-center gap-xs mb-xxs">
+<div class="font-label-md text-on-surface">Installment 2</div>
+<span class="inline-flex items-center px-[6px] py-[2px] rounded-full bg-overdue text-white font-micro">
+                                                Overdue
+                                            </span>
+</div>
+<div class="font-body-sm text-muted mb-xxs">Due: 12 Dec 2023</div>
+<div class="font-section-title text-overdue">₹40,875</div>
+</div>
+<button class="h-[44px] px-lg rounded-[10px] bg-teal text-white font-label-md hover:bg-secondary transition-colors whitespace-nowrap shadow-soft hover:shadow-hover">
+                                        Mark as Paid
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] rounded-t-xl tap-highlight-transparent">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:bg-slate-100 dark:active:bg-slate-800 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-[2px]">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:bg-slate-100 dark:active:bg-slate-800 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-[2px]">trending_down</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Credit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-600 dark:text-teal-400 active:bg-slate-100 dark:active:bg-slate-800 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-[2px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Debit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:bg-slate-100 dark:active:bg-slate-800 w-full h-full" href="#">
+<span class="material-symbols-outlined mb-[2px]">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LoanTracker - Global Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#006b58",
+                      "outline-variant": "#c8c5cd",
+                      "surface-container-high": "#ebe7e9",
+                      "on-error-container": "#93000a",
+                      "muted": "#7f8c8d",
+                      "primary-fixed": "#e2e0fc",
+                      "white": "#ffffff",
+                      "on-surface": "#1c1b1d",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#1a1a2e",
+                      "on-surface-variant": "#47464c",
+                      "debit": "#27ae60",
+                      "navy": "#1a1a2e",
+                      "primary": "#00000b",
+                      "overdue": "#e74c3c",
+                      "tertiary": "#695d3c",
+                      "outline": "#78767d",
+                      "surface-container-highest": "#e5e1e3",
+                      "surface-dim": "#ddd9db",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#83829b",
+                      "inverse-on-surface": "#f4f0f2",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#002019",
+                      "background": "#fcf8fa",
+                      "on-secondary-container": "#00725e",
+                      "inverse-surface": "#313032",
+                      "on-primary-fixed": "#1a1a2e",
+                      "tertiary-fixed-dim": "#d5c59d",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#005142",
+                      "border": "#e5e7eb",
+                      "on-background": "#1c1b1d",
+                      "surface-container": "#f1edef",
+                      "tertiary-container": "#b9aa83",
+                      "secondary-container": "#82f7d8",
+                      "surface-variant": "#e5e1e3",
+                      "surface-tint": "#5d5c74",
+                      "text": "#2c3e50",
+                      "red-50": "#fef2f2",
+                      "surface": "#f5f6fa",
+                      "secondary-fixed-dim": "#65dabc",
+                      "on-tertiary-container": "#493f20",
+                      "on-tertiary-fixed-variant": "#514627",
+                      "primary-fixed-dim": "#c6c4df",
+                      "on-tertiary-fixed": "#231b02",
+                      "inverse-primary": "#c6c4df",
+                      "paid": "#27ae60",
+                      "surface-container-low": "#f6f2f4",
+                      "on-primary-fixed-variant": "#45455b",
+                      "tertiary-fixed": "#f2e1b7",
+                      "teal": "#16a085",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#82f7d8",
+                      "surface-bright": "#fcf8fa",
+                      "credit": "#c0392b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "xl": "32px",
+                      "sidebar-width": "240px",
+                      "lg": "24px",
+                      "container-max": "1200px",
+                      "xxl": "40px",
+                      "topbar-height": "64px",
+                      "xxs": "4px",
+                      "xs": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "section-title": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-base": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "micro": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "section-title": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-md": ["22px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-base": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "micro": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.025em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-sm": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); }
+        /* Prevent body scroll when dropdown is active conceptually, though not strictly required for mockup */
+        .backdrop-overlay {
+            background-color: rgba(0,0,0,0.4);
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-base h-screen overflow-hidden flex">
+<!-- SideNavBar (Shared Component) -->
+<aside class="w-sidebar-width h-screen fixed left-0 top-0 border-r border-gray-100 bg-white hidden md:flex flex-col py-6 space-y-4 z-30">
+<div class="px-lg pb-md mb-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-teal text-[28px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="text-lg font-black tracking-tight text-slate-900">LoanTracker</span>
+</div>
+<p class="font-micro text-muted mt-xxs uppercase tracking-wider">Admin</p>
+</div>
+<nav class="flex-1 px-sm space-y-xxs">
+<!-- Active Tab: Dashboard (Closest intent to general ledger usage before search) -->
+<a class="flex items-center gap-sm px-md py-sm bg-teal-50 text-teal-700 border-l-4 border-teal-600 rounded-r-lg font-label-md transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm px-md py-sm text-slate-600 hover:bg-slate-50 hover:pl-2 transition-all duration-200 rounded-lg font-label-md border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Credit
+            </a>
+<a class="flex items-center gap-sm px-md py-sm text-slate-600 hover:bg-slate-50 hover:pl-2 transition-all duration-200 rounded-lg font-label-md border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                Debit
+            </a>
+<a class="flex items-center gap-sm px-md py-sm text-slate-600 hover:bg-slate-50 hover:pl-2 transition-all duration-200 rounded-lg font-label-md border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-lg pt-md border-t border-gray-100">
+<button class="w-full flex items-center justify-center gap-xs bg-teal text-white font-label-md rounded-lg h-[44px] hover:bg-opacity-90 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                New Transaction
+            </button>
+</div>
+<div class="px-sm mt-auto">
+<a class="flex items-center gap-sm px-md py-sm text-slate-600 hover:bg-slate-50 hover:pl-2 transition-all duration-200 rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-sidebar-width h-screen relative">
+<!-- Backdrop for search focus -->
+<div class="backdrop-overlay"></div>
+<!-- TopNavBar (Shared Component + Search Overlay State) -->
+<header class="sticky top-0 w-full bg-white border-b border-gray-200 shadow-sm z-50">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1200px] mx-auto relative">
+<div class="flex items-center gap-lg flex-1">
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-slate-900">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Search Bar On Left (Active State) -->
+<div class="relative w-full max-w-[560px]">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-sm text-teal-600">search</span>
+<input autofocus="" class="w-full h-[44px] pl-[40px] pr-sm bg-white border-2 border-teal-600 rounded-lg font-body-base text-text focus:outline-none focus:ring-0" placeholder="Search borrowers, ledgers..." type="text" value="Ramesh"/>
+<button class="absolute right-sm text-muted hover:text-text">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- SEARCH DROPDOWN PANEL -->
+<div class="absolute top-[calc(100%+8px)] left-0 w-[560px] bg-surface-container-lowest border border-border rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col">
+<!-- Tabs -->
+<div class="flex border-b border-border bg-surface-container-low px-sm pt-xs">
+<button class="px-md py-sm font-label-md text-teal-600 border-b-2 border-teal-600">All</button>
+<button class="px-md py-sm font-label-md text-muted hover:text-text border-b-2 border-transparent">Credit</button>
+<button class="px-md py-sm font-label-md text-muted hover:text-text border-b-2 border-transparent">Debit</button>
+</div>
+<!-- Results List -->
+<div class="max-h-[400px] overflow-y-auto">
+<!-- Result Item: Credit (Overdue) -->
+<a class="flex items-center justify-between p-sm hover:bg-surface-container transition-colors border-b border-border group cursor-pointer" href="#">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-label-md">RI</div>
+<div>
+<p class="font-label-md text-on-surface group-hover:text-teal transition-colors">Ramesh Iyer</p>
+<p class="font-body-sm text-muted">+91 98765 43210</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-credit">₹45,000</p>
+<p class="font-micro text-overdue uppercase bg-red-50 px-2 py-0.5 rounded inline-block mt-1">Overdue</p>
+</div>
+</a>
+<!-- Result Item: Debit (Active) -->
+<a class="flex items-center justify-between p-sm hover:bg-surface-container transition-colors border-b border-border group cursor-pointer" href="#">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary font-label-md">SV</div>
+<div>
+<p class="font-label-md text-on-surface group-hover:text-teal transition-colors">Sunita Verma</p>
+<p class="font-body-sm text-muted">+91 91234 56780</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-debit">₹12,000</p>
+<p class="font-micro text-muted uppercase mt-1">Remaining</p>
+</div>
+</a>
+<!-- Result Item: Completed -->
+<a class="flex items-center justify-between p-sm hover:bg-surface-container transition-colors border-b border-border group cursor-pointer opacity-75" href="#">
+<div class="flex items-center gap-md">
+<img alt="Profile of Anil Kumar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of an Indian man in his late 30s with a neat beard, wearing a crisp light blue button-down shirt. The background is a soft, blurred corporate office setting with bright, natural daylight. The lighting is high-key and flattering, perfectly suited for a clean, modern corporate UI dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVGXQrb2q5LwVlq1jYKVaMaKHp6jcizQZ3rik2DEZoc_VSmI1qWLoNRJDyF2chS-fYW_fKsDxhrMscrhz4naeW8YFQFAgwpO2aGpEg3nHhKRPi1Mwa9JX0V9K2daESjlJNsd-IJdiIXiGztk3YXHSDmprI2opWYQ_q6f-t2PhCPVg1-TZ8rcPbn1kapM7A6Dj7s0rPHwyuSLngH7NbjT6k8nLYAX0sEoSa4QniASe5UHd5xs4GlxqkIUtvnie6MJk51HWb1r4LTUYC"/>
+<div>
+<p class="font-label-md text-on-surface group-hover:text-teal transition-colors">Anil Kumar</p>
+<p class="font-body-sm text-muted">+91 99887 76655</p>
+</div>
+</div>
+<div class="text-right flex flex-col items-end">
+<p class="font-label-md text-text line-through text-opacity-50">₹20,000</p>
+<span class="font-micro text-white bg-paid px-2 py-0.5 rounded inline-block mt-1">Completed</span>
+</div>
+</a>
+<!-- Result Item: Ledger Match -->
+<a class="flex items-center justify-between p-sm hover:bg-surface-container transition-colors group cursor-pointer" href="#">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded border border-border bg-surface-dim flex items-center justify-center text-muted">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface group-hover:text-teal transition-colors">March Retail Expansion</p>
+<p class="font-body-sm text-muted">Ledger Group • 14 Borrowers</p>
+</div>
+</div>
+<div class="text-right">
+<span class="material-symbols-outlined text-muted text-[20px] group-hover:text-teal">chevron_right</span>
+</div>
+</a>
+</div>
+<!-- Dropdown Footer -->
+<div class="bg-surface-container-low p-sm border-t border-border text-center">
+<a class="font-label-md text-teal hover:underline" href="#">View all results for "Ramesh"</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Links (Hidden on md to make room for search focus, or kept subtle) -->
+<nav class="hidden lg:flex items-center gap-lg ml-lg opacity-50 pointer-events-none">
+<a class="font-['Inter'] text-sm font-semibold text-teal-600 border-b-2 border-teal-600 pb-5 pt-5" href="#">Dashboard</a>
+<a class="font-['Inter'] text-sm font-medium text-gray-500 pb-5 pt-5" href="#">Credit</a>
+<a class="font-['Inter'] text-sm font-medium text-gray-500 pb-5 pt-5" href="#">Debit</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-md ml-auto relative z-10">
+<button class="text-gray-500 hover:text-gray-700 transition-colors hidden md:block">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-teal text-white font-label-md px-md h-[36px] rounded-lg hover:bg-opacity-90 transition-colors hidden md:flex items-center justify-center">
+                        Add Loan
+                    </button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-gray-200 cursor-pointer" data-alt="A small, professional circular avatar portrait of a user in a modern software interface. The person is smiling gently, well-lit with soft studio lighting against a neutral light grey background, ensuring it blends perfectly into a minimalist, light-themed web application dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDahCTs-jk6tBU1u4GbdiMcoYFa9RKHNxMfessCDOfy00a66Ovi9S4cgy0DC8-BCE-TSo_w71UwS33WNY46eMi56pFaWEspWMC9jJ_EeT00bW1geN0NonymL6601NFWKkkmKvZSy__pA6zyMh65n33DxOWhCw9agN9udytkWgBT_gmhz2m3H7jWo2DR9DnNGSv8UlVN43lqafEOe4tS6M_rXgUAKAYP95UvPSOiuqIvUKf_kuNC2dRuA-EBjEv5kh5YlOMFhYzAUeXx"/>
+</div>
+</div>
+</header>
+<!-- Dummy Dashboard Content behind overlay -->
+<main class="flex-1 overflow-y-auto p-xl opacity-40 select-none pointer-events-none">
+<h1 class="font-headline-xl text-on-surface mb-xl">Dashboard</h1>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Stat Card Placeholder -->
+<div class="bg-white border border-border rounded-xl p-lg shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<div class="flex items-center gap-xs text-muted mb-xs">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="font-label-sm uppercase tracking-wider">Total Credit Out</span>
+</div>
+<p class="font-headline-lg text-on-surface">₹14,50,000</p>
+</div>
+<div class="bg-white border border-border rounded-xl p-lg shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<div class="flex items-center gap-xs text-muted mb-xs">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+<span class="font-label-sm uppercase tracking-wider">Total Debit Owed</span>
+</div>
+<p class="font-headline-lg text-on-surface">₹3,20,000</p>
+</div>
+<div class="bg-white border border-border rounded-xl p-lg shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<div class="flex items-center gap-xs text-muted mb-xs">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+<span class="font-label-sm uppercase tracking-wider">Expected Interest</span>
+</div>
+<p class="font-headline-lg text-teal">₹85,000</p>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-white/80 backdrop-blur-lg border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-teal-600 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">trending_down</span>
+<span class="text-[10px] font-bold uppercase tracking-wider mt-1">Credit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-[10px] font-bold uppercase tracking-wider mt-1">Debit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

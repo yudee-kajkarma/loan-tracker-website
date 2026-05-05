@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LoanTracker - PIN Lock</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#006b58",
+                        "outline-variant": "#c8c5cd",
+                        "surface-container-high": "#ebe7e9",
+                        "on-error-container": "#93000a",
+                        "muted": "#7f8c8d",
+                        "primary-fixed": "#e2e0fc",
+                        "white": "#ffffff",
+                        "on-surface": "#1c1b1d",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1a1a2e",
+                        "on-surface-variant": "#47464c",
+                        "debit": "#27ae60",
+                        "navy": "#1a1a2e",
+                        "primary": "#00000b",
+                        "overdue": "#e74c3c",
+                        "tertiary": "#695d3c",
+                        "outline": "#78767d",
+                        "surface-container-highest": "#e5e1e3",
+                        "surface-dim": "#ddd9db",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#83829b",
+                        "inverse-on-surface": "#f4f0f2",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#002019",
+                        "background": "#fcf8fa",
+                        "on-secondary-container": "#00725e",
+                        "inverse-surface": "#313032",
+                        "on-primary-fixed": "#1a1a2e",
+                        "tertiary-fixed-dim": "#d5c59d",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#005142",
+                        "border": "#e5e7eb",
+                        "on-background": "#1c1b1d",
+                        "surface-container": "#f1edef",
+                        "tertiary-container": "#b9aa83",
+                        "secondary-container": "#82f7d8",
+                        "surface-variant": "#e5e1e3",
+                        "surface-tint": "#5d5c74",
+                        "text": "#2c3e50",
+                        "red-50": "#fef2f2",
+                        "surface": "#f5f6fa",
+                        "secondary-fixed-dim": "#65dabc",
+                        "on-tertiary-container": "#493f20",
+                        "on-tertiary-fixed-variant": "#514627",
+                        "primary-fixed-dim": "#c6c4df",
+                        "on-tertiary-fixed": "#231b02",
+                        "inverse-primary": "#c6c4df",
+                        "paid": "#27ae60",
+                        "surface-container-low": "#f6f2f4",
+                        "on-primary-fixed-variant": "#45455b",
+                        "tertiary-fixed": "#f2e1b7",
+                        "teal": "#16a085",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#82f7d8",
+                        "surface-bright": "#fcf8fa",
+                        "credit": "#c0392b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xl": "32px",
+                        "sidebar-width": "240px",
+                        "lg": "24px",
+                        "container-max": "1200px",
+                        "xxl": "40px",
+                        "topbar-height": "64px",
+                        "xxs": "4px",
+                        "xs": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "section-title": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-base": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "micro": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "section-title": ["18px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-xl": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-base": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "micro": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.025em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen flex flex-col items-center justify-center font-body-base">
+<!-- TopNavBar Suppressed as this is a linear/transactional screen -->
+<!-- SideNavBar Suppressed as this is a linear/transactional screen -->
+<!-- BottomNavBar Suppressed as this is a linear/transactional screen -->
+<main class="flex flex-col items-center justify-center w-full max-w-md px-md">
+<!-- Icon Container -->
+<div class="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-teal text-3xl" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-md text-headline-md text-navy mb-xxl text-center">Enter your PIN</h1>
+<!-- PIN Input Area -->
+<div class="flex gap-sm mb-xxl">
+<!-- Box 1: Filled -->
+<div class="w-[56px] h-[56px] bg-white border border-border rounded flex items-center justify-center shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<div class="w-3 h-3 bg-navy rounded-full"></div>
+</div>
+<!-- Box 2: Filled -->
+<div class="w-[56px] h-[56px] bg-white border border-border rounded flex items-center justify-center shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<div class="w-3 h-3 bg-navy rounded-full"></div>
+</div>
+<!-- Box 3: Empty (Active/Focused conceptually) -->
+<div class="w-[56px] h-[56px] bg-white border-2 border-teal rounded flex items-center justify-center shadow-[0_1px_2px_rgba(0,0,0,0.04)] ring-2 ring-teal/20">
+<!-- Empty -->
+</div>
+<!-- Box 4: Empty -->
+<div class="w-[56px] h-[56px] bg-white border border-border rounded flex items-center justify-center shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<!-- Empty -->
+</div>
+</div>
+<!-- Forgot PIN Link -->
+<a class="font-body-sm text-body-sm text-muted hover:text-navy transition-colors duration-200" href="#">
+            Forgot PIN?
+        </a>
+</main>
+</body></html>

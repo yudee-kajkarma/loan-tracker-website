@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LoanTracker - Add Loan (Debit)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#006b58",
+                        "outline-variant": "#c8c5cd",
+                        "surface-container-high": "#ebe7e9",
+                        "on-error-container": "#93000a",
+                        "muted": "#7f8c8d",
+                        "primary-fixed": "#e2e0fc",
+                        "white": "#ffffff",
+                        "on-surface": "#1c1b1d",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1a1a2e",
+                        "on-surface-variant": "#47464c",
+                        "debit": "#27ae60",
+                        "navy": "#1a1a2e",
+                        "primary": "#00000b",
+                        "overdue": "#e74c3c",
+                        "tertiary": "#695d3c",
+                        "outline": "#78767d",
+                        "surface-container-highest": "#e5e1e3",
+                        "surface-dim": "#ddd9db",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#83829b",
+                        "inverse-on-surface": "#f4f0f2",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#002019",
+                        "background": "#fcf8fa",
+                        "on-secondary-container": "#00725e",
+                        "inverse-surface": "#313032",
+                        "on-primary-fixed": "#1a1a2e",
+                        "tertiary-fixed-dim": "#d5c59d",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#005142",
+                        "border": "#e5e7eb",
+                        "on-background": "#1c1b1d",
+                        "surface-container": "#f1edef",
+                        "tertiary-container": "#b9aa83",
+                        "secondary-container": "#82f7d8",
+                        "surface-variant": "#e5e1e3",
+                        "surface-tint": "#5d5c74",
+                        "text": "#2c3e50",
+                        "red-50": "#fef2f2",
+                        "surface": "#f5f6fa",
+                        "secondary-fixed-dim": "#65dabc",
+                        "on-tertiary-container": "#493f20",
+                        "on-tertiary-fixed-variant": "#514627",
+                        "primary-fixed-dim": "#c6c4df",
+                        "on-tertiary-fixed": "#231b02",
+                        "inverse-primary": "#c6c4df",
+                        "paid": "#27ae60",
+                        "surface-container-low": "#f6f2f4",
+                        "on-primary-fixed-variant": "#45455b",
+                        "tertiary-fixed": "#f2e1b7",
+                        "teal": "#16a085",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#82f7d8",
+                        "surface-bright": "#fcf8fa",
+                        "credit": "#c0392b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xl": "32px",
+                        "sidebar-width": "240px",
+                        "lg": "24px",
+                        "container-max": "1200px",
+                        "xxl": "40px",
+                        "topbar-height": "64px",
+                        "xxs": "4px",
+                        "xs": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "section-title": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-base": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "micro": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "section-title": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["22px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-base": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "micro": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.025em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-sm": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-text font-body-base antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-slate-900 sticky top-0 w-full border-b border-gray-200 dark:border-gray-800 shadow-sm z-40">
+<div class="flex justify-between items-center h-topbar-height px-md md:px-lg max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="text-xl font-bold text-slate-900 dark:text-white font-headline-md text-headline-md tracking-tight">LoanTracker</span>
+<nav class="hidden md:flex gap-md ml-lg">
+<a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 font-label-md text-label-md px-sm py-xs rounded hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors active:scale-95 duration-150" href="#">Dashboard</a>
+<a class="text-gray-500 hover:text-gray-700 dark:text-gray-400 font-label-md text-label-md px-sm py-xs rounded hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors active:scale-95 duration-150" href="#">Credit</a>
+<a class="text-teal-600 border-b-2 border-teal-600 font-semibold font-label-md text-label-md px-sm py-xs hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors active:scale-95 duration-150" href="#">Debit</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex items-center justify-center bg-teal text-white px-md py-sm rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-colors shadow-sm active:scale-95 duration-150">
+                    Add Loan
+                </button>
+<button aria-label="Notifications" class="p-xs text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high overflow-hidden ml-xs border border-border shrink-0 cursor-pointer">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a businessperson with a neutral expression, well-lit in a modern office environment. The lighting is balanced and crisp, emphasizing a trustworthy and reliable corporate aesthetic. The background is slightly blurred but suggests a clean, contemporary workspace with subtle teal and navy color hints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzmbVkUu74fY_gqRIEoPTgieGauF3NONw660GGV8lUUJ87UHHPPdg4ULgnxk-8g3tQZS1lRgmJrhEu5kJlZ1us57pysqxxmnkL2IeECjWT88XJkYflE4mhyllNIgCn7C8Y_7Xq1IFdjwb9fCEtf9BHPl2KGQgH9dzxBm6El9izPWTvVVbkHrIuDbIVh33AS_gUoDTlykGge8l8sC_iIWcFqAGvDiAEvmhwC_BPbipS3dt-ZGie_2E-Rt-Maz9jltDfI2Ma0O-D9Mm"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center p-md md:p-xl">
+<div class="w-full max-w-[560px]">
+<!-- Contextual Back/Header -->
+<div class="mb-lg flex items-center gap-xs">
+<button class="p-xs text-muted hover:text-text hover:bg-white rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-navy">New Debit</h1>
+</div>
+<!-- Main Form Card -->
+<div class="bg-white rounded-xl border border-border shadow-[0_1px_2px_rgba(0,0,0,0.04)] overflow-hidden">
+<!-- Card Header -->
+<div class="p-lg border-b border-border flex justify-between items-start bg-surface-container-low">
+<div>
+<div class="inline-flex items-center px-xs py-xxs rounded bg-debit/10 border border-debit/20 mb-sm">
+<span class="w-2 h-2 rounded-full bg-debit mr-xs"></span>
+<span class="font-micro text-micro text-debit uppercase tracking-wider">Debit Loan</span>
+</div>
+<p class="font-body-sm text-body-sm text-muted">Money going out. Fill in the borrower details.</p>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="p-lg space-y-lg">
+<!-- Borrower Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Person Name</label>
+<input class="w-full h-[44px] px-sm bg-white border border-border rounded focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none font-body-base text-body-base text-text transition-all" placeholder="e.g. Rahul Sharma" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Phone Number</label>
+<div class="relative">
+<span class="absolute left-sm top-1/2 -translate-y-1/2 text-muted font-body-base text-body-base">+91</span>
+<input class="w-full h-[44px] pl-[48px] pr-sm bg-white border border-border rounded focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none font-body-base text-body-base text-text transition-all" placeholder="98765 43210" type="tel"/>
+</div>
+</div>
+</div>
+<div class="h-px bg-surface-variant w-full my-sm"></div>
+<!-- Financial Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Principal Amount</label>
+<div class="relative">
+<span class="absolute left-sm top-1/2 -translate-y-1/2 text-muted font-body-base text-body-base">₹</span>
+<input class="w-full h-[44px] pl-[32px] pr-sm bg-white border border-border rounded focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none font-body-base text-body-base text-text transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Monthly Interest</label>
+<div class="relative">
+<input class="w-full h-[44px] pl-sm pr-[36px] bg-white border border-border rounded focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none font-body-base text-body-base text-text transition-all" placeholder="2.0" type="number"/>
+<span class="absolute right-sm top-1/2 -translate-y-1/2 text-muted font-body-base text-body-base">%</span>
+</div>
+</div>
+</div>
+<!-- Tenure Segmented Control -->
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Tenure</label>
+<div class="flex p-xxs bg-surface border border-border rounded-lg">
+<button class="flex-1 py-xs text-center rounded font-label-md text-label-md text-muted hover:text-text transition-colors">1 Month</button>
+<button class="flex-1 py-xs text-center rounded bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04)] border border-border font-label-md text-label-md text-navy font-medium transition-colors">2 Months</button>
+<button class="flex-1 py-xs text-center rounded font-label-md text-label-md text-muted hover:text-text transition-colors">3 Months</button>
+</div>
+</div>
+</div>
+<!-- Loan Summary Preview Card -->
+<div class="mx-lg mb-lg p-md bg-surface-bright border border-surface-dim rounded-lg shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<h3 class="font-label-md text-label-md text-navy mb-sm flex items-center gap-xxs">
+<span class="material-symbols-outlined text-[18px] text-teal">calculate</span>
+                        Live Summary
+                    </h3>
+<div class="grid grid-cols-2 gap-sm mb-md">
+<div>
+<span class="block font-micro text-micro text-muted uppercase">Total Interest</span>
+<span class="block font-body-base text-body-base text-text mt-xxs">₹ 0.00</span>
+</div>
+<div>
+<span class="block font-micro text-micro text-muted uppercase">Due Date</span>
+<span class="block font-body-base text-body-base text-text mt-xxs">-</span>
+</div>
+</div>
+<div class="pt-sm border-t border-surface-dim flex justify-between items-end">
+<span class="font-label-sm text-label-sm text-muted">Total Repayable</span>
+<span class="font-section-title text-section-title text-teal">₹ 0.00</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="p-lg bg-surface-container-low border-t border-border flex justify-end gap-md">
+<button class="px-lg h-[44px] rounded-lg font-label-md text-label-md text-navy bg-white border border-border hover:bg-surface transition-colors">Cancel</button>
+<button class="px-xl h-[44px] rounded-lg font-label-md text-label-md text-white bg-teal shadow-sm hover:bg-opacity-90 active:scale-95 transition-all">Add Loan</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 rounded-t-xl shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 w-full h-full active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider font-micro text-micro">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 w-full h-full active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined mb-1">trending_down</span>
+<span class="text-[10px] font-bold uppercase tracking-wider font-micro text-micro">Credit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-600 dark:text-teal-400 w-full h-full active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="text-[10px] font-bold uppercase tracking-wider font-micro text-micro">Debit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 w-full h-full active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-wider font-micro text-micro">Settings</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Credit Loans - LoanTracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#006b58",
+                    "outline-variant": "#c8c5cd",
+                    "surface-container-high": "#ebe7e9",
+                    "on-error-container": "#93000a",
+                    "muted": "#7f8c8d",
+                    "primary-fixed": "#e2e0fc",
+                    "white": "#ffffff",
+                    "on-surface": "#1c1b1d",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#1a1a2e",
+                    "on-surface-variant": "#47464c",
+                    "debit": "#27ae60",
+                    "navy": "#1a1a2e",
+                    "primary": "#00000b",
+                    "overdue": "#e74c3c",
+                    "tertiary": "#695d3c",
+                    "outline": "#78767d",
+                    "surface-container-highest": "#e5e1e3",
+                    "surface-dim": "#ddd9db",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#83829b",
+                    "inverse-on-surface": "#f4f0f2",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#002019",
+                    "background": "#fcf8fa",
+                    "on-secondary-container": "#00725e",
+                    "inverse-surface": "#313032",
+                    "on-primary-fixed": "#1a1a2e",
+                    "tertiary-fixed-dim": "#d5c59d",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#005142",
+                    "border": "#e5e7eb",
+                    "on-background": "#1c1b1d",
+                    "surface-container": "#f1edef",
+                    "tertiary-container": "#b9aa83",
+                    "secondary-container": "#82f7d8",
+                    "surface-variant": "#e5e1e3",
+                    "surface-tint": "#5d5c74",
+                    "text": "#2c3e50",
+                    "red-50": "#fef2f2",
+                    "surface": "#f5f6fa",
+                    "secondary-fixed-dim": "#65dabc",
+                    "on-tertiary-container": "#493f20",
+                    "on-tertiary-fixed-variant": "#514627",
+                    "primary-fixed-dim": "#c6c4df",
+                    "on-tertiary-fixed": "#231b02",
+                    "inverse-primary": "#c6c4df",
+                    "paid": "#27ae60",
+                    "surface-container-low": "#f6f2f4",
+                    "on-primary-fixed-variant": "#45455b",
+                    "tertiary-fixed": "#f2e1b7",
+                    "teal": "#16a085",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#82f7d8",
+                    "surface-bright": "#fcf8fa",
+                    "credit": "#c0392b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "xl": "32px",
+                    "sidebar-width": "240px",
+                    "lg": "24px",
+                    "container-max": "1200px",
+                    "xxl": "40px",
+                    "topbar-height": "64px",
+                    "xxs": "4px",
+                    "xs": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "section-title": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-base": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "micro": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "section-title": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["22px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-base": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "micro": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.025em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-sm": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-base antialiased">
+<!-- TopNavBar Web -->
+<nav class="hidden md:flex flex-col border-b border-gray-200 dark:border-gray-800 shadow-sm bg-white dark:bg-slate-900 sticky top-0 w-full z-40">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1200px] mx-auto w-full">
+<div class="flex items-center gap-8">
+<div class="font-['Inter'] text-xl font-bold text-slate-900 dark:text-white tracking-tight">LoanTracker</div>
+<div class="flex gap-6">
+<a class="font-['Inter'] text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 py-5 transition-colors" href="#">Dashboard</a>
+<a class="font-['Inter'] text-sm font-medium text-teal-600 border-b-2 border-teal-600 font-semibold py-5" href="#">Credit</a>
+<a class="font-['Inter'] text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 py-5 transition-colors" href="#">Debit</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted text-sm">search</span>
+<input class="pl-10 pr-4 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal w-64 bg-surface-container-lowest" placeholder="Search loans..." type="text"/>
+</div>
+<button class="text-teal-600 dark:text-teal-400 font-['Inter'] text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors px-4 py-2 rounded-lg active:scale-95 duration-150 border border-teal-600">Add Loan</button>
+<button class="p-2 text-gray-500 hover:bg-gray-50 rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-border cursor-pointer active:scale-95 duration-150" data-alt="A small circular avatar portrait of a professional looking man in a modern light-mode money lending dashboard environment. High contrast crisp photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv_WRoQWGDNls4rn3cAIgT6J50y8a-lubxy0-8SkcCET_5kburCnBBN1hksG1IIF0pkVvI9CkYkORPRGo7iONElas5PTVJ8-W1-kUPf2eq6gTflMGCXdkqrIxRXgs5hnv9ApEtjPnwOyx9BqQL0mHEzZyLZwiJ2iqAlu7FtVGU1jY6a1jkz5LBWqS344B4sakDu3R2mCLzm8pGORFLyo_L9TpzR0yzDwd6csP_Uio0cL1N_xN5OgCjW_ThkkFiOvyC-pAnzIEhUUD5"/>
+</div>
+</div>
+</nav>
+<!-- TopNavBar Mobile (Simplified) -->
+<nav class="md:hidden sticky top-0 w-full z-40 bg-white border-b border-border shadow-sm px-4 h-16 flex items-center justify-between">
+<div class="font-['Inter'] text-lg font-bold text-slate-900 tracking-tight">LoanTracker</div>
+<button class="text-teal font-label-md bg-teal/10 px-3 py-1.5 rounded-lg border border-teal/20">Add Loan</button>
+</nav>
+<div class="flex max-w-container-max mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="w-60 h-screen fixed left-0 top-0 border-r border-gray-100 dark:border-gray-800 bg-white dark:bg-slate-900 hidden md:flex flex-col py-6 space-y-4 pt-24 z-30">
+<div class="px-6 mb-6 flex items-center gap-3">
+<img alt="User Avatar" class="w-10 h-10 rounded-full border border-border" data-alt="A small circular avatar portrait of a professional looking man in a modern light-mode money lending dashboard environment. High contrast crisp photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnnn93tPHNSuttwFx0Rtc4LwV895NWvITOZnuZUdP7_x3YPp28iyKLGZLzkkLCO9NckfWGM8sOpeDvxTHrrrH1liiSor9Ikels23RXYa5CoqInypnTWQPHWgFPIHLNGRqnwLTmDyRymDtto2s-_-ZIjETrA9Ztx_W2u-LnAHXu2vSWjnxflPbri3KNO0i6syjnUthikPFICt5BFo9G7LSQ-MTWkm7IbsM6mBhOydvMqKx4WXMoqpD5Lfb73T1TSXY0RLoz-mJlTAa1"/>
+<div>
+<h2 class="font-label-md text-navy">LoanTracker Admin</h2>
+<p class="font-micro text-muted">Premium Lender</p>
+</div>
+</div>
+<button class="mx-6 mb-4 bg-teal text-white font-label-md rounded-lg py-2.5 flex items-center justify-center gap-2 hover:bg-teal/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Transaction
+            </button>
+<div class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 font-['Inter'] text-sm antialiased text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-r-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Inter'] text-sm antialiased bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border-l-4 border-teal-600 hover:pl-2 transition-all duration-200 cursor-pointer rounded-r-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">payments</span>
+                    Credit
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Inter'] text-sm antialiased text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-r-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+                    Debit
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Inter'] text-sm antialiased text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-r-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                    Settings
+                </a>
+</div>
+<div class="px-4 pb-6 mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 font-['Inter'] text-sm antialiased text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:pl-2 transition-all duration-200 cursor-pointer rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                    Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-sidebar-width min-h-screen px-4 md:px-xl py-6 md:py-8 pb-24 md:pb-8">
+<!-- Header Section -->
+<div class="mb-8">
+<h1 class="font-headline-xl text-headline-xl text-navy mb-2">Credit Loans</h1>
+<p class="font-body-base text-body-base text-muted">Manage money you owe to others.</p>
+</div>
+<!-- Sticky Filter Bar -->
+<div class="sticky top-[64px] z-30 bg-surface/90 backdrop-blur-md py-4 mb-6 border-b border-border/50 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between -mx-4 px-4 md:mx-0 md:px-0">
+<div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-credit text-credit font-label-md bg-credit/10">All Active</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border text-muted font-label-md hover:bg-surface-container transition-colors bg-white">Upcoming</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border text-muted font-label-md hover:bg-surface-container transition-colors bg-white">Overdue</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border text-muted font-label-md hover:bg-surface-container transition-colors bg-white">Completed</button>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<div class="relative flex-1 md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted text-[18px]">search</span>
+<input class="w-full pl-9 pr-4 py-2 bg-white border border-border rounded-lg text-sm focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal shadow-sm" placeholder="Search borrower..." type="text"/>
+</div>
+<button class="p-2 bg-white border border-border rounded-lg text-muted hover:bg-surface-container transition-colors shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid / Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Active -->
+<div class="group bg-white rounded-xl border border-border p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full">
+<div class="absolute top-0 left-0 w-full h-1 bg-credit/20"></div>
+<!-- Header -->
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-navy font-label-md border border-border/50">
+                                RI
+                            </div>
+<div>
+<h3 class="font-section-title text-section-title text-navy">Ramesh Iyer</h3>
+<p class="font-micro text-micro text-muted">ID: #CR-2023-089</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-navy border border-border/50">Active</span>
+</div>
+<!-- Financial Row -->
+<div class="grid grid-cols-3 gap-4 mb-5 pb-4 border-b border-border/50 flex-1">
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Principal</p>
+<p class="font-label-md text-label-md text-navy">₹50,000</p>
+</div>
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Rate/Mo</p>
+<p class="font-label-md text-label-md text-navy">2.5%</p>
+</div>
+<div class="text-right">
+<p class="font-micro text-micro text-muted mb-1 uppercase">Total Due</p>
+<p class="font-label-md text-label-md text-credit">₹56,250</p>
+</div>
+</div>
+<!-- Progress & Footer -->
+<div class="mt-auto">
+<div class="flex justify-between items-end mb-2">
+<p class="font-body-sm text-body-sm text-muted">Next EMI: <span class="text-navy font-medium">15 Nov</span></p>
+<p class="font-micro text-micro text-muted">40% Paid</p>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-credit rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<!-- Hover Actions -->
+<div class="absolute inset-0 bg-white/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-navy hover:bg-teal hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-overdue hover:bg-overdue hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Overdue -->
+<div class="group bg-red-50 rounded-xl border border-overdue p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full">
+<div class="absolute top-0 left-0 w-full h-1 bg-overdue"></div>
+<!-- Header -->
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-overdue font-label-md border border-overdue/30">
+                                PS
+                            </div>
+<div>
+<h3 class="font-section-title text-section-title text-navy">Priya Sharma</h3>
+<p class="font-micro text-micro text-overdue/80">3 Days Late</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-overdue text-white shadow-sm">Overdue</span>
+</div>
+<!-- Financial Row -->
+<div class="grid grid-cols-3 gap-4 mb-5 pb-4 border-b border-overdue/20 flex-1">
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Principal</p>
+<p class="font-label-md text-label-md text-navy">₹1,20,000</p>
+</div>
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Rate/Mo</p>
+<p class="font-label-md text-label-md text-navy">3.0%</p>
+</div>
+<div class="text-right">
+<p class="font-micro text-micro text-muted mb-1 uppercase">Total Due</p>
+<p class="font-label-md text-label-md text-overdue font-bold">₹1,45,600</p>
+</div>
+</div>
+<!-- Progress & Footer -->
+<div class="mt-auto">
+<div class="flex justify-between items-end mb-2">
+<p class="font-body-sm text-body-sm text-overdue font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                 Payment was due 12 Nov
+                             </p>
+<p class="font-micro text-micro text-muted">15% Paid</p>
+</div>
+<div class="h-2 w-full bg-white rounded-full overflow-hidden border border-overdue/20">
+<div class="h-full bg-overdue rounded-full" style="width: 15%"></div>
+</div>
+</div>
+<!-- Hover Actions -->
+<div class="absolute inset-0 bg-red-50/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<button class="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-navy hover:bg-teal hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-overdue hover:bg-overdue hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Completed -->
+<div class="group bg-surface-container-low rounded-xl border border-border p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full opacity-75 hover:opacity-100">
+<div class="absolute top-0 left-0 w-full h-1 bg-muted/20"></div>
+<!-- Header -->
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-muted font-label-md border border-border/50">
+                                AM
+                            </div>
+<div>
+<h3 class="font-section-title text-section-title text-muted line-through decoration-muted/50">Arjun Mehta</h3>
+<p class="font-micro text-micro text-muted">Closed: 01 Nov 2023</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-dim text-muted border border-border">Completed</span>
+</div>
+<!-- Financial Row -->
+<div class="grid grid-cols-3 gap-4 mb-5 pb-4 border-b border-border/50 flex-1 opacity-70">
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Principal</p>
+<p class="font-label-md text-label-md text-muted">₹25,000</p>
+</div>
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Rate/Mo</p>
+<p class="font-label-md text-label-md text-muted">2.0%</p>
+</div>
+<div class="text-right">
+<p class="font-micro text-micro text-muted mb-1 uppercase">Total Paid</p>
+<p class="font-label-md text-label-md text-muted">₹28,000</p>
+</div>
+</div>
+<!-- Progress & Footer -->
+<div class="mt-auto">
+<div class="flex justify-between items-end mb-2">
+<p class="font-body-sm text-body-sm text-muted">Settled in full.</p>
+<p class="font-micro text-micro text-muted">100% Paid</p>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-muted rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Hover Actions -->
+<div class="absolute inset-0 bg-surface-container-low/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<button class="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-navy hover:bg-teal hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Active -->
+<div class="group bg-white rounded-xl border border-border p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow relative overflow-hidden flex flex-col h-full">
+<div class="absolute top-0 left-0 w-full h-1 bg-credit/20"></div>
+<!-- Header -->
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-navy font-label-md border border-border/50">
+                                NK
+                            </div>
+<div>
+<h3 class="font-section-title text-section-title text-navy">Neha Kapoor</h3>
+<p class="font-micro text-micro text-muted">ID: #CR-2023-112</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-navy border border-border/50">Active</span>
+</div>
+<!-- Financial Row -->
+<div class="grid grid-cols-3 gap-4 mb-5 pb-4 border-b border-border/50 flex-1">
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Principal</p>
+<p class="font-label-md text-label-md text-navy">₹80,000</p>
+</div>
+<div>
+<p class="font-micro text-micro text-muted mb-1 uppercase">Rate/Mo</p>
+<p class="font-label-md text-label-md text-navy">2.0%</p>
+</div>
+<div class="text-right">
+<p class="font-micro text-micro text-muted mb-1 uppercase">Total Due</p>
+<p class="font-label-md text-label-md text-credit">₹89,600</p>
+</div>
+</div>
+<!-- Progress & Footer -->
+<div class="mt-auto">
+<div class="flex justify-between items-end mb-2">
+<p class="font-body-sm text-body-sm text-muted">Next EMI: <span class="text-navy font-medium">20 Nov</span></p>
+<p class="font-micro text-micro text-muted">10% Paid</p>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-credit rounded-full" style="width: 10%"></div>
+</div>
+</div>
+<!-- Hover Actions -->
+<div class="absolute inset-0 bg-white/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-navy hover:bg-teal hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-overdue hover:bg-overdue hover:text-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-teal-600 dark:text-teal-400 active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent w-full h-full bg-slate-50/50" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Credit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1">trending_up</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Debit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:bg-slate-100 dark:active:bg-slate-800 tap-highlight-transparent w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+</body></html>
